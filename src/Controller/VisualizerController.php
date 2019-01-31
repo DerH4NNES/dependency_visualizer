@@ -25,15 +25,10 @@ class VisualizerController extends ControllerBase {
       $modules[] = $moduleName;
       $dependencies[$moduleName] = $this->parseDependencies($moduleName, $extension->getType());
     }
-    $test = 2;
     return [
       'network' => [
         '#type' => 'container',
         '#attributes' => ['id' => 'network'],
-      ],
-      'selection' => [
-        '#type' => 'container',
-        '#attributes' => ['id' => 'selection'],
       ],
       '#attached' => [
         'library' => [
@@ -64,7 +59,13 @@ class VisualizerController extends ControllerBase {
     return $this->cleanModuleName($info['dependencies']);
   }
 
-  private function cleanModuleName($modules) {
+  /** Cleans module names
+   *
+   * @param $modules
+   *
+   * @return array
+   */
+  private function cleanModuleName($modules): array {
     $cleaned = [];
     foreach ($modules as $module) {
       $clean = explode(':', $module)[1] ?? $module;

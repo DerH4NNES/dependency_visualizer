@@ -2,7 +2,9 @@
   "name": "drupal/dependency_visualizer",
   "type": "drupal-module",
   "description": "This module visualizes the dependency tree",
-  "keywords": ["Drupal"],
+  "keywords": [
+    "Drupal"
+  ],
   "license": "GPL-2.0+",
   "homepage": "https://www.drupal.org/project/dependency_visualizer",
   "minimum-stability": "dev",

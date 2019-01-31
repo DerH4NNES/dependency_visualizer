@@ -3,7 +3,7 @@
  *
  * Defines the behavior the dependency visualizer module.
  */
-(function ($, Drupal, drupalSettings) {
+(function (Drupal, drupalSettings) {
 
   'use strict';
 
@@ -14,16 +14,16 @@
     nodes: null,
     edges: null,
     network: null,
-    attach: function (context, settings) {
+    attach: function () {
       this.draw();
     },
-    destroy: function (context, settings) {
+    destroy: function () {
       if (this.network !== null) {
         this.network.destroy();
         this.network = null;
       }
     },
-    draw: function (context, settings) {
+    draw: function () {
       this.destroy();
       this.nodes = [];
       this.edges = [];
@@ -39,9 +39,9 @@
           id: i,
           label: String(drupalSettings.dependency_visualizer.nodes[i])
         });
-        if(!dependencies.length) continue;
-
-
+        if (!dependencies.length) {
+          continue;
+        }
 
 
         for (let j = 0; j < dependencies.length; j++) {
@@ -54,15 +54,11 @@
         }
       }
 
-      console.log(drupalSettings.dependency_visualizer.nodes);
-
-      // create a network
       let container = document.getElementById('network');
       let data = {
         nodes: this.nodes,
         edges: this.edges
       };
-      //let directionInput = document.getElementById("direction");
       let options = {
         stabilize: false,
         smoothCurves: false,
@@ -72,25 +68,18 @@
           direction: 'UD',
           sortMethod: 'directed',
           edgeMinimization: false,
-          //nodeSpacing: 1000,
-          //levelSeperation: 250
         },
         height: '1000px',
-        width: '3000px',
+        width: '100%',
         treeSpacing: 1,
 
       };
       this.network = new vis.Network(container, data, options);
-
-      // add event listeners
-      this.network.on('select', function (params) {
-        document.getElementById('selection').innerHTML = 'Selection: ' + params.nodes;
-      });
     }
 
   };
 
-})(jQuery, Drupal, drupalSettings);
+})(Drupal, drupalSettings);
 
 
 

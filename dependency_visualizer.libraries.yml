@@ -9,3 +9,4 @@ visualizer:
   dependencies:
     - dependency_visualizer/vis
     - core/drupalSettings
+    - core/drupal
