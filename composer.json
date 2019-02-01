@@ -11,31 +11,5 @@
   "support": {
     "issues": "https://www.drupal.org/project/issues/dependency_visualizer",
     "source": "http://cgit.drupalcode.org/dependency_visualizer"
-  },
-  "require": {
-    "almende/vis": "v4.21.0"
-  },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "version": "v4.21.0",
-        "name": "almende/vis",
-        "type": "drupal-library",
-        "source": {
-          "url": "https://github.com/almende/vis.git",
-          "type": "git",
-          "reference": "v4.21.0"
-        },
-        "require": {
-          "composer/installers": "^1.2.0"
-        }
-      }
-    }
-  ],
-  "extra": {
-    "installer-paths": {
-      "libraries/{$name}": ["type:drupal-library"]
-    }
   }
 }
