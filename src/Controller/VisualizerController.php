@@ -44,7 +44,8 @@ class VisualizerController extends ControllerBase {
     ];
   }
 
-  /** Parses dependencies of a specific module
+  /**
+   * Parses dependencies of a specific module
    *
    * @param $module
    *
