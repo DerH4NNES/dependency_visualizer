@@ -26,8 +26,16 @@
           "url": "https://github.com/almende/vis.git",
           "type": "git",
           "reference": "v4.21.0"
+        },
+        "require": {
+          "composer/installers": "^1.2.0"
         }
       }
     }
-  ]
+  ],
+  "extra": {
+    "installer-paths": {
+      "libraries/{$name}": ["type:drupal-library"]
+    }
+  }
 }
